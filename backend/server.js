@@ -9,16 +9,17 @@ const express=require('express'),cors=require('cors'),bcrypt=require('bcryptjs')
 const db=require('./database/db'),{auth,admin}=require('./middleware/auth');
 const app = express();
 
-const allowedOrigins = [
+const allowedOrigins = new Set([
+    process.env.CLIENT_ORIGIN,
     'http://localhost:5173',
     'http://127.0.0.1:5173',
     'http://localhost:5174',
     'http://127.0.0.1:5174'
-];
+].filter(Boolean));
 
 app.use(cors({
     origin: function (origin, callback) {
-        if (!origin || allowedOrigins.includes(origin)) {
+        if (!origin || allowedOrigins.has(origin)) {
             callback(null, true);
         } else {
             callback(new Error('CORS blocked this frontend origin: ' + origin));
