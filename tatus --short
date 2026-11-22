@@ -1,0 +1,11 @@
+warning: in the working copy of 'backend/server.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/api.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/app.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/main.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/pages/ReportFound.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/pages/ReportLost.jsx', LF will be replaced by CRLF the next time Git touches it
+ frontend/src/App.jsx               | 961 [32m++++++++++++++++++++++++++++++++++++[m[31m-[m
+ frontend/src/pages/ReportFound.jsx |   2 [32m+[m[31m-[m
+ frontend/src/pages/ReportLost.jsx  |   2 [32m+[m[31m-[m
+ frontend/src/style.css             | 263 [32m+++++++++[m[31m-[m
+ 4 files changed, 1205 insertions(+), 23 deletions(-)
