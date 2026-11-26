@@ -277,11 +277,25 @@ function itemSymbol(category = '', title = '') {
   return '🎒';
 }
 
+function itemPhotoPath(category = '', title = '') {
+  const value = `${category} ${title}`.toLowerCase();
+  if (/backpack|rucksack|bag/.test(value)) return '/item-images/backpack.jpg';
+  if (/watch|wristwatch/.test(value)) return '/item-images/watch.jpg';
+  if (/iphone|smartphone|phone/.test(value)) return '/item-images/phone.jpg';
+  if (/passbook|pass book|registration book/.test(value)) return '/item-images/student-passbook.jpeg';
+  if (/headphone|headset|earbud/.test(value)) return '/item-images/headphones.jpg';
+  if (/laptop|notebook computer|computer/.test(value)) return '/item-images/laptop.jpg';
+  if (/key/.test(value)) return '/item-images/keys.jpg';
+  if (/water|bottle/.test(value)) return '/item-images/water-bottle.jpg';
+  return null;
+}
+
 function ItemArtwork({ item, large = false }) {
+  const photo = item?.image_url || itemPhotoPath(item?.category, item?.title);
   return (
     <div className={`item-artwork${large ? ' item-artwork-large' : ''}`}>
-      {item?.image_url
-        ? <img src={item.image_url} alt={item.title || 'Reported item'} />
+      {photo
+        ? <img src={photo} alt={item?.title || 'Reported item'} />
         : <span aria-hidden="true">{itemSymbol(item?.category, item?.title)}</span>}
     </div>
   );
